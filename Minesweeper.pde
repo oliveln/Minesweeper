@@ -183,7 +183,7 @@ public class MSButton
     else if (clicked)
       fill( 200 );
     else 
-    fill( 100 );
+    fill(167, 199, 231);
 
     rect(x, y, width, height);
     if (myLabel.equals("U")) {
