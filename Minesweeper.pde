@@ -203,7 +203,7 @@ public class MSButton
   }
   public void setLabel(int newLabel)
   {
-    myLabel = ""+ newLabel;
+    myLabel = "" + newLabel;
   }
   public boolean isFlagged()
   {
