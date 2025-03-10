@@ -133,7 +133,7 @@ public class MSButton
   // called by manager
   public void mousePressed () 
   {
-    myLabel = String.valueOf(countMines(myRow, myCol));
+    myLabel = str(countMines(myRow, myCol));
     clicked = true;
     //done //bottom left
     if (isValid(myRow + 1, myCol-1) && !mines.contains(buttons[myRow + 1][myCol-1]) && countMines(myRow + 1, myCol-1) == 0 && buttons[myRow + 1][myCol -1].clicked == false) {
