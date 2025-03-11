@@ -2,7 +2,7 @@ import de.bezier.guido.*;
 public final static int NUM_ROWS = 20;
 public final static int NUM_COLS = 20;
 private MSButton[][] buttons; //2d array of minesweeper buttons
-private ArrayList <MSButton> mines = new ArrayList <MSButton> ();//ArrayList of just the minesweeper buttons that are mined
+private ArrayList<MSButton>mines = new ArrayList<MSButton>();//ArrayList of just the minesweeper buttons that are mined
 
 void setup ()
 {
@@ -133,7 +133,9 @@ public class MSButton
   // called by manager
   public void mousePressed () 
   {
-    myLabel = String.valueOf(countMines(myRow, myCol));
+    if(countMines(myRow,myCol) > 0){
+      setLabel(countMines(myRow, myCol));
+    }
     clicked = true;
     //done //bottom left
     if (isValid(myRow + 1, myCol-1) && !mines.contains(buttons[myRow + 1][myCol-1]) && countMines(myRow + 1, myCol-1) == 0 && buttons[myRow + 1][myCol -1].clicked == false) {
@@ -176,14 +178,18 @@ public class MSButton
   }
   public void draw () 
   {    
-    if (flagged)
+    if (flagged){
       fill(0);
-    else if ( clicked && mines.contains(this) ) 
+    }
+    else if ( clicked && mines.contains(this) ){ 
       fill(255, 0, 0);
-    else if (clicked)
+    }
+    else if (clicked){
       fill(195, 177, 225);
-    else 
+    }
+    else{
     fill(167, 199, 231);
+    }
 
     rect(x, y, width, height);
     if (myLabel.equals("U")) {
